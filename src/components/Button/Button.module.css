@@ -1,0 +1,21 @@
+button {
+    border: none;
+    height: 300px;
+    width: 300px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0; /*по умолчанию есть внутренний отступ*/
+}
+button:hover {
+    color: rgba(255, 69, 0, 0.56); /*опция currentСolor позволяет взять этот цвет внизу */
+}
+
+button svg {
+    stroke: #00eaff;
+}
+
+button:hover svg{/*наведение на /svg class но изменяется svg*/
+    fill: #ff0099;
+    stroke: rgba(0, 255, 196, 0.71);
+    background-color: currentColor;
+}
