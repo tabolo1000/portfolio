@@ -1,28 +1,26 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { Tab } from "../tab/Tab";
 
-export const Menu = () => {
+type MenuType = {
+  menuItems: Array<string>;
+};
+
+export const Menu = ({ menuItems }: MenuType) => {
   return (
-        <StyledMenu>
-            <ul>
-                <li>
-                    <a href="Home">Home</a>
-                </li>
-                <li>
-                    <a href="Protfolio">Protfolio</a>
-                </li>
-                <li>
-                    <a href="Contact">Contact</a>
-                </li>
-            </ul>
-        </StyledMenu>
-  )
-}
-
-
+    <StyledMenu>
+      <ul>
+        {menuItems.map((el, index) => (
+          <Tab key={index} title={el} />
+        ))}
+      </ul>
+    </StyledMenu>
+  );
+};
 
 const StyledMenu = styled.nav`
-    ul{
-        display: flex;
-        gap: 30px
-    }
-`
+  ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+  }
+`;
