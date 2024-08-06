@@ -10,7 +10,7 @@ type ButtonProps = {
 }
 
 
-export const Button = ({style, iconId}:ButtonProps) => {
+export const Button1 = ({style, iconId}:ButtonProps) => {
     return (
         <div>
         <button  style={{...style, width: '200px', height: '200px'}}>
