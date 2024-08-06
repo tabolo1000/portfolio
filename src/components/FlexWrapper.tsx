@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-type DirectionType = "row-reverse" | "colomn" | "colomn-reverse";
+type DirectionType = "row-reverse" | "column" | "colomn-reverse";
 type JustifyType = "center" | "flex-end" | "space-between" | "space-around" | "space-evenly";
 type WrapType = "wrap" | "wrap-reverse";
 type AlignType = "center" | "start" | "end";
