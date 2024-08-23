@@ -28,7 +28,7 @@ export const SkillBox = ({ iconId, title, description }: SkillType) => {
   );
 };
 
-const IconStyled = styled.div`
+export const IconStyled = styled.div`
     position: relative;
     z-index:0;
 

@@ -65,5 +65,23 @@ h3{
     font-size: 16px;
     letter-spacing: 0.06em;
 }
+input, textarea{
+    background-color: ${theme.color.secondaryBg};
+    padding: 8px 16px;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: ${theme.color.font};
+    border: 2px solid #4a4a4a;
+    &:focus-visible{
+        outline: 2px solid #4A4A4A;
+    }
+}
+textarea{
+    min-height: 155px;
+    text-indent: none;
+    resize: none;
+}
 
 `
