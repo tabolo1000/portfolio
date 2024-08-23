@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { FlexWrapper } from "../../../components/FlexWrapper";
-import { Icon } from "../../../components/icon/Icon";
 import { SectionTitle } from "../../../components/SectionTitle";
-import { Skill, SkillType } from "./skill/Skill";
+import { SkillBox, SkillType } from "./skill/SkillBox";
+import { Container } from "../../../components/Container";
+import { theme } from "../../../styles/Themes";
 
 const skills: Array<SkillType> = [
   {
@@ -63,24 +64,31 @@ const skills: Array<SkillType> = [
 
 export const Skills = () => {
   return (
-    <StyledSkills>
-      <SectionTitle>My Skills</SectionTitle>
-      <FlexWrapper justify="center" gap="20px" wrap="wrap">
-        {skills.map((el, index) => (
-          <Skill
-            key={index}
-            iconId={el.iconId}
-            title={el.title}
-            description={el.description}
-          />
-        ))}
-      </FlexWrapper>
-    </StyledSkills>
+    <SkillsSection>
+      <Container>
+        <SectionTitle> <span >My Skills</span></SectionTitle>
+        <FlexWrapper justify="center" gap="20px" wrap="wrap">
+          {skills.map((el, index) => (
+            <SkillBox
+              key={index}
+              iconId={el.iconId}
+              title={el.title}
+              description={el.description}
+            />
+          ))}
+        </FlexWrapper>
+      </Container>
+    </SkillsSection>
   );
 };
 
-const StyledSkills = styled.section`
-  background-color: #0a303038;
+
+
+
+
+
+
+const SkillsSection = styled.section`
   min-height: 100vh;
   
   

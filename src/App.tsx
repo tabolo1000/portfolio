@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import './App.css';
-import { Header } from './layout/header/header';
+import { Header } from './layout/header/Header';
 import { Main } from './layout/section/main/Main';
 import { Skills } from './layout/section/skills/Skills';
 import { Works } from './layout/section/works/Works';

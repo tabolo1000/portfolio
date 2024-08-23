@@ -4,6 +4,7 @@ import { Menu } from "../../../components/menu/Menu";
 import { FlexWrapper } from "../../../components/FlexWrapper";
 import { Work } from "./work/Work";
 import photoWorks from "../../../assets/images/photo/tinySize/indexWorks";
+import { Container } from "../../../components/Container";
 
 export type WorkProjectType = {
   title: string;
@@ -18,28 +19,28 @@ const menuItems: Array<string> = ["All", "LANDING PAGE", "REACT", "SPA"];
 const worksProject: Array<WorkProjectType> = [
   {
     title: "train",
-    description: "some text train",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
     linkCode: "/trainCode",
     linkDemo: "/trainDeno",
     photo: photoWorks.train,
   },
   {
     title: "phone",
-    description: "some text phone",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
     linkCode: "/phoneCode",
     linkDemo: "/trainDeno",
     photo: photoWorks.phone,
   },
   {
     title: "laptop",
-    description: "some text laptop",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
     linkCode: "/laptopCode",
     linkDemo: "/trainDeno",
     photo: photoWorks.laptop,
   },
   {
     title: "micro",
-    description: "some text micro",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
     linkCode: "/microCode",
     linkDemo: "/trainDeno",
     photo: photoWorks.micro,
@@ -48,19 +49,21 @@ const worksProject: Array<WorkProjectType> = [
 
 export const Works = () => {
   return (
-    <StyledWorks>
-      <SectionTitle>My Work Experiance</SectionTitle>
-      <Menu menuItems={menuItems} />
-      <FlexWrapper wrap="wrap" gap="10px">
-        {worksProject.map((el, index) => (
-          <Work key={index} {...el} />
-        ))}
-      </FlexWrapper>
-    </StyledWorks>
+    <WorksSection>
+      <Container>
+        <SectionTitle><span>My Work Experiance</span></SectionTitle>
+        <Menu menuItems={menuItems} />
+        <FlexWrapper align="start" justify="space-around" wrap="wrap" gap="10px">
+          {worksProject.map((el, index) => (
+            <Work key={index} {...el} />
+          ))}
+        </FlexWrapper>
+      </Container>
+    </WorksSection>
   );
 };
 
-const StyledWorks = styled.div`
-  min-height: 100vh;
-  background-color: #bc1ca112;
+const WorksSection = styled.section`
+  
+
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { WorkProjectType } from "../Works";
+import { Button } from "../../../../components/Button";
 
 export const Work = ({
   title,
@@ -10,29 +11,72 @@ export const Work = ({
 }: WorkProjectType) => {
   return (
     <MainWork>
-      <Image src={photo} alt={title} />
-      <Title>{title}</Title>
-      <Text>{description}</Text>
-      <Link href={linkCode}>{`code ${title} /`}</Link>
-      <Link href={linkDemo}>{` demo ${title} `}</Link>
+      <WorkImageWrapper>
+        <Image src={photo} alt={title} />
+        <Button>Click</Button>
+      </WorkImageWrapper>
+      <BlockInformation>
+        <Title>{title}</Title>
+        <Text>{description}</Text>
+        <Link href={linkCode}>{`code ${title} /`}</Link>
+        <Link href={linkDemo}>{` demo ${title} `}</Link>
+      </BlockInformation>
     </MainWork>
   );
 };
 
+
+
+const BlockInformation = styled.div`
+ padding: 20px 
+`
+
 const MainWork = styled.div`
-  max-width: 602.01px;
+  max-width: 540px;
   background-color: #00b3ff3a;
   width: 100%
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 452.91px;
   object-fit: cover;
 `;
 
-const Title = styled.h3``;
+const Title = styled.h3`
+  text-transform: capitalize;
+`;
 
-const Text = styled.p``;
+const Text = styled.p`
+  padding: 14px 0 10px; 
+`;
 
 const Link = styled.a``;
+
+const WorkImageWrapper = styled.div`
+  position: relative;
+  
+  ${Button} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  };
+
+  &:hover{
+    &::before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(8px);
+  }
+  ${Button}{
+    opacity: 1;
+  }
+  }
+
+`
