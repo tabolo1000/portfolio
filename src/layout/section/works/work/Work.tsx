@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { WorkProjectType } from "../Works";
 import { Button } from "../../../../components/Button";
+import { theme } from "../../../../styles/Themes";
 
 export const Work = ({
   title,
@@ -63,8 +64,7 @@ const WorkImageWrapper = styled.div`
     opacity: 0;
   };
 
-  &:hover{
-    &::before{
+  &::before{
     content: "";
     display: inline-block;
     position: absolute;
@@ -72,11 +72,25 @@ const WorkImageWrapper = styled.div`
     right: 0;
     top: 0;
     bottom: 0;
-    backdrop-filter: blur(8px);
+
   }
+
+  &:hover{
+    &::before{
+      backdrop-filter: blur(8px);   
+    }
+    
   ${Button}{
-    opacity: 1;
+    opacity: 1; 
   }
   }
 
+  @media ${theme.tablet} {
+    ${Button}{
+      opacity: 1;    
+    }
+    &::before{
+      backdrop-filter: blur(8px);
+    }
+  }
 `

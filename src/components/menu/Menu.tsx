@@ -25,6 +25,6 @@ padding: 40px;
     display: flex;
     gap: 30px;
     justify-content: center;
-
+    text-align: center;
   }
 `;
