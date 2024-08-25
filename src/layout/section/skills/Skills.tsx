@@ -67,7 +67,7 @@ export const Skills = () => {
     <SkillsSection>
       <Container>
         <SectionTitle> <span >My Skills</span></SectionTitle>
-        <FlexWrapper justify="center" gap="20px" wrap="wrap">
+        <SkillsBox>
           {skills.map((el, index) => (
             <SkillBox
               key={index}
@@ -76,21 +76,31 @@ export const Skills = () => {
               description={el.description}
             />
           ))}
-        </FlexWrapper>
+        </SkillsBox>
       </Container>
     </SkillsSection>
   );
 };
 
 
+const SkillsBox = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, auto));
+  //grid-template-rows: repeat( 3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 10px;
+  grid-auto-flow: row;
 
 
+  //wrap
+  //gri
+`
+
+/*<FlexWrapper justify="space-between" gap="20px" wrap="wrap"></FlexWrapper>
+</FlexWrapper>*/
 
 
 
 const SkillsSection = styled.section`
-  min-height: 100vh;
-  
-  
-  padding: 10px;
+
 `;

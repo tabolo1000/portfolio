@@ -13,13 +13,13 @@ export const SkillBox = ({ iconId, title, description }: SkillType) => {
     <Skill>
       <FilterStyled>
         <IconStyled>
-            <Icon
-              iconId={iconId}
-              width={50}
-              height={50}
-              viewBox="0 0 110 100"
-              color="yellow"
-            />
+          <Icon
+            iconId={iconId}
+            width={50}
+            height={50}
+            viewBox="0 0 110 100"
+            color="yellow"
+          />
         </IconStyled>
       </FilterStyled>
       <SkillTitle>{title}</SkillTitle>
@@ -50,11 +50,13 @@ export const IconStyled = styled.div`
     
 `;
 
-const Skill = styled.div`
+const Skill = styled.li`
+    //flex-grow: 1; 
     box-sizing: border-box;
-    width: 32%;
-    box-shadow: 10px -5px 10px black;
     
+    //width: 280px;
+    //max-width: 360px;
+    box-shadow: 10px -5px 10px black;
     
     
     text-align: center;
@@ -62,7 +64,13 @@ const Skill = styled.div`
     border: 2px double ${theme.color.secondaryBg};
     border-radius: 15px;
     min-height: 300px;
-    padding: 30px;
+    padding: 30px 20px 40px;
+
+    @media ${theme.tablet} {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
 `;
 
 const SkillTitle = styled.h3`

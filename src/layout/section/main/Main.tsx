@@ -4,12 +4,13 @@ import { FlexWrapper } from "../../../components/FlexWrapper";
 import { Button } from "../../../components/Button";
 import { Container } from "../../../components/Container";
 import { theme } from "../../../styles/Themes";
+import { font } from "../../../styles/Common";
 
 export const Main = () => {
   return (
     <MainSection>
       <Container>
-        <FlexWrapper align="center" justify="space-around">
+        <FlexWrapper align="center" justify="space-around" wrap="wrap">
           <div>
             <Acquaintance>
               <Greeting>Welcome</Greeting>
@@ -36,7 +37,12 @@ const squareStyleElement = css`
     height: 430px;;
     border: 3px double ${theme.color.gradientSecondary};
 
-    z-index: -1;
+    z-index: 0;
+
+    @media ${theme.mobile} {
+    width: 256px;
+    height: 294px;
+  }
 `
 
 const PhotoWrapper = styled.div`
@@ -48,6 +54,11 @@ const PhotoWrapper = styled.div`
 
     top: -20px;
     left: 30px;
+
+    @media ${theme.mobile} {
+    left: 10px;
+    top: -10px;
+  }
   };
   &::after{
     ${squareStyleElement}
@@ -61,46 +72,70 @@ const PhotoWrapper = styled.div`
 
 const Acquaintance = styled.div`
   padding: 20px 0; 
+
+  
 `
 
 const MainSection = styled.section`
   min-height: 100vh;
-  border: 2px solid blue;
-
   display: flex;
 `
 
 const Greeting = styled.span`
   font-weight: 300;
   font-size: 25px;
+  ${font({
+  weight: 300,
+  Fmax: 25,
+  Fmin: 18
+})}
   letter-spacing: 0.36em;
   text-transform: uppercase;
+
+  @media ${theme.mobile} {
+    display: block;
+    padding-top: 100px;
+  }
 `
 
 const Photo = styled.img`
   width: 350px;
   height: 430px;
   object-fit: cover;
-  z-index: 0;
-`;
+  object-position: center;
+  z-index: 1;
 
-const StyledMain = styled.div`
-  min-height: 100vh;
- // background-color: #3919574b;
+  @media ${theme.mobile} {
+    width: 256px;
+    height: 294px;
+  }
 `;
 
 const MainTitle = styled.h1`
-  font-weight: 200;
-  font-size: 19px;
+  ${font({
+  weight: 200,
+  Fmax: 19,
+  Fmin: 14,
+})}
   letter-spacing: 0.01em;
   text-transform: uppercase;
+
+  @media ${theme.tablet} {
+    display: block;
+    margin-bottom: 40px;
+  }
 `;
-const Name = styled.h2`
+
+const Name = styled.h4`
   position: relative;
   font-weight: 600;
-  font-size: 67px;
+  ${font({
+  weight: 600,
+  Fmax: 67,
+  Fmin: 28
+})};
   z-index: 0;
-  span{
+ span {
     &::before{
     content: "";
     border: 2px solid ${theme.color.gradientPrimary};
@@ -125,5 +160,9 @@ const Name = styled.h2`
     z-index: -1;
     transform: rotate(-15deg)
   }
+  }
+
+  @media ${theme.tablet} {
+    line-height: 60px;
   }
 `;

@@ -8,6 +8,8 @@ type Thene = {
 
         font: string,
     }
+    mobile: string,
+    tablet: string,
 }
 
 export const theme: Thene = {
@@ -19,5 +21,7 @@ export const theme: Thene = {
         // gradientProgress: "linear-gradient(90deg, #15B9B9, #3C1DFF)",
 
         font: "#FFFFFF",
-    }
+    },
+    mobile: "screen and (max-width: 460px)",
+    tablet: "screen and (max-width: 768px)",
 }

@@ -2,42 +2,29 @@ import styled from "styled-components";
 import { Icon } from "../../components/icon/Icon";
 import { FlexWrapper } from "../../components/FlexWrapper";
 
+
+const comunication = ["twitter", "codepen", "facebok"]
+
 export const Footer = () => {
   return (
     <MainFooter>
       <FlexWrapper direction="column" align="center">
         <Name>Nik</Name>
         <SocialList>
-          <SocialItem>
-            <SocialLink>
-              <Icon
-                iconId={"twitter"}
-                width={40}
-                height={40}
-                viewBox="0 0 35 31"
-              ></Icon>
-            </SocialLink>
-          </SocialItem>
-          <SocialItem>
-            <SocialLink>
-              <Icon
-                iconId={"codepen"}
-                width={40}
-                height={40}
-                viewBox="0 0 35 31"
-              ></Icon>
-            </SocialLink>
-          </SocialItem>
-          <SocialItem>
-            <SocialLink>
-              <Icon
-                iconId={"facebok"}
-                width={40}
-                height={40}
-                viewBox="0 0 35 31"
-              ></Icon>
-            </SocialLink>
-          </SocialItem>
+          {comunication.map(el => (
+            <SocialItem>
+              <FlexWrapper justify="center" align="center">
+                <SocialLink>
+                  <Icon
+                    iconId={el}
+                    width={20}
+                    height={20}
+                    viewBox="-5 -10 43 40"
+                  ></Icon>
+                </SocialLink>
+              </FlexWrapper>
+            </SocialItem>
+          ))}
         </SocialList>
         <Copyright>© 2024 Nik Tabala, All Rights Reserved.</Copyright>
       </FlexWrapper>
@@ -49,7 +36,10 @@ const MainFooter = styled.footer`
   min-height: 10vh;
   background-color: #0f35b21b;
 `;
-const Name = styled.span``;
+const Name = styled.span`
+  padding-top: 40px;
+  letter-spacing: .5em;;
+`;
 
 const SocialList = styled.ul`
     display: flex;
@@ -57,8 +47,18 @@ const SocialList = styled.ul`
     list-style: none
 `;
 
-const SocialLink = styled.a``;
+const SocialLink = styled.a`
 
-const SocialItem = styled.li``;
+`;
+
+const SocialItem = styled.li`
+  margin: 20px 0 30px;
+  background-color: #635353d0;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color:  red;
+`;
 
 const Copyright = styled.small``;

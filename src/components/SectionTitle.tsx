@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../styles/Themes";
+import { font } from "../styles/Common";
 
 
 
@@ -10,11 +11,14 @@ export const SectionTitle = styled.h2<{ backgroundColor?: string }>`
   position: relative;
   padding: 30px 15%;
   text-align: left;
-  font-weight: 600;
-  font-size: 36px;
   letter-spacing: 0.05em;
   text-transform: capitalize;
   z-index: 0;
+  ${font({
+    weight: 600,
+    Fmax: 36,
+    Fmin: 30,
+  })}
 
   span {
     padding: 0 20px;

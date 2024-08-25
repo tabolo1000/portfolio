@@ -4,6 +4,7 @@ import { Menu } from "../../components/menu/Menu";
 import { Container } from "../../components/Container";
 import { FlexWrapper } from "../../components/FlexWrapper";
 import { HeaderMenu } from "./HeaderMenu";
+import { MobileHeaderMenu } from "./MobileHederMenu";
 
 const menuItems: Array<string> = ["Home", "Portfolio", "Contact"]
 
@@ -14,6 +15,7 @@ export const Header = () => {
         <FlexWrapper justify="space-around" align="center">
           <Logo />
           <HeaderMenu menuItems={menuItems} />
+          <MobileHeaderMenu menuItems={menuItems}/>
         </FlexWrapper>
       </Container>
     </StyledHeader>
