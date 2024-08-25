@@ -66,6 +66,7 @@ h3{
     letter-spacing: 0.06em;
 }
 input, textarea{
+    box-sizing: border-box;
     background-color: ${theme.color.secondaryBg};
     padding: 8px 16px;
     text-transform: capitalize;

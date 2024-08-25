@@ -26,8 +26,7 @@ const SectionContact = styled.section`
 `;
 
 const CotactForm = styled.form`
-  max-width: 500px;
-  
+  max-width: 540px;
   display: flex;
   flex-direction: column;
   justify-content: center;
