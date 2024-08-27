@@ -1,17 +1,19 @@
 import styled from "styled-components";
-import { Tab } from "../tab/Tab";
 import { ItemMenu } from "./ItemMenu";
+import { Filter } from "../../layout/section/works/useWorks";
+
 
 type MenuType = {
-  menuItems: Array<string>;
+  menuItems: Array<Filter>;
+  changeFilter: (filter: Filter) => void
 };
 
-export const Menu = ({ menuItems }: MenuType) => {
+export const Menu = ({ menuItems, changeFilter }: MenuType) => {
   return (
     <StyledMenu>
       <ul>
         {menuItems.map((el, index) => (
-          <ItemMenu key={index} title={el} />
+          <ItemMenu key={index} title={el} changeFilter={changeFilter} />
         ))}
       </ul>
     </StyledMenu>

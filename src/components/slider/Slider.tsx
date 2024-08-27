@@ -1,28 +1,76 @@
 import styled from "styled-components";
 import { FlexWrapper } from "../FlexWrapper";
 import { theme } from "../../styles/Themes";
+import { Carousel, ConfigProvider } from 'antd';
+import "./slider.css"
 
-export const Slider = () => {
-  return (
-    <MaindSlider direction="column" align="center" gap = "10px">
-      <FlexWrapper>
-        <Slide>
-          <Text>
-            Caudillo — «предводитель» или «вождь», официальный титул испанского
+
+export const comment = [
+  {
+    text: `Caudillo — «предводитель» или «вождь», официальный титул испанского
             диктатора Франк— титул диктатора националистической Испании,
             название прочих испанских диктаторов, а также диктаторов в ряде
             стран Латинской Америки, пришедших к власти посредством военного
-            переворота и опирающихся непосредственно на военную силу.
-          </Text>
-          <Name>@Francisco Paulino Hermenegildo</Name>
-        </Slide>
+            переворота и опирающихся непосредственно на военную силу.`,
+    author: "@Francisco Paulino Hermenegildo"
+  },
+  {
+    text: `Caudillo — «предводитель» или «вождь», официальный титул испанского
+            диктатора Франк— титул диктатора националистической Испании,
+            название прочих испанских диктаторов, а также диктаторов в ряде
+            стран Латинской Америки, пришедших к власти посредством военного
+            переворота и опирающихся непосредственно на военную силу.`,
+    author: "@Francisco Paulino Hermenegildo"
+  }
+]
+
+
+
+
+export const Slider = () => {
+
+
+  return (
+    <MaindSlider direction="column" align="center" gap="10px">
+      <FlexWrapper>
+        <ConfigProvider
+          theme={{
+            components: {
+              Carousel: {
+                arrowOffset: -30,
+                arrowSize: 30,
+                dotActiveWidth: 20,
+                dotHeight: 10,
+                dotWidth: 10,
+                dotOffset: 12,
+               
+              },
+            },
+          }}
+        >
+          <Carousel
+            className="carousel"
+            easing={"ease-in"}
+            speed={2000} draggable
+            arrows
+            autoplay
+          >
+            {
+              comment.map((el, i) => (
+                <Slide key={i}>
+                  <Text>
+                    {el.text}
+                  </Text>
+                  <Name>
+                    {el.author}
+                  </Name>
+                </Slide>
+              ))
+            }
+          </Carousel>
+        </ConfigProvider>
       </FlexWrapper>
-      <Pagination>
-        <span></span>
-        <span></span>
-        <span></span>
-      </Pagination>
-    </MaindSlider>
+    </MaindSlider >
   );
 };
 
@@ -31,6 +79,7 @@ const MaindSlider = styled(FlexWrapper)`
 `;
 
 const Slide = styled.div`
+  color: white;
   text-align: center;
 `;
 const Text = styled.p`

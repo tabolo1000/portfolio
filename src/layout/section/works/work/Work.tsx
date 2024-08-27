@@ -1,7 +1,14 @@
 import styled from "styled-components";
-import { WorkProjectType } from "../Works";
 import { Button } from "../../../../components/Button";
 import { theme } from "../../../../styles/Themes";
+import { WorkProjectType } from "../useWorks";
+import { useCallback } from "react";
+
+
+
+type WorkProps = WorkProjectType & {
+  
+}
 
 export const Work = ({
   title,
@@ -9,12 +16,18 @@ export const Work = ({
   linkCode,
   linkDemo,
   photo,
-}: WorkProjectType) => {
+ 
+}: WorkProps) => {
+
+const GitHubRedirectButton = useCallback(()=>{
+  window.location.href = 'https://tabolo1000.github.io/todolists/';
+},[])
+
   return (
     <MainWork>
       <WorkImageWrapper>
         <Image src={photo} alt={title} />
-        <Button>Click</Button>
+        <Button onClick={GitHubRedirectButton}>Click</Button>
       </WorkImageWrapper>
       <BlockInformation>
         <Title>{title}</Title>

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 export const Logo = () => {
   return (
@@ -6,6 +6,11 @@ export const Logo = () => {
   )
 }
 
+const logoA = keyframes`
+    100%{
+      color: red
+    }
+`
 
 const Autograph = styled.span`
   font-family: "Alex Brush", system-ui;
@@ -13,4 +18,8 @@ const Autograph = styled.span`
   font-style: normal;
   font-size: 35px;
 
+
+
+  animation: ${logoA} 2s ease infinite alternate;
 `
+

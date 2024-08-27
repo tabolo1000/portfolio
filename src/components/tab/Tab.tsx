@@ -68,9 +68,11 @@ const ListItem = styled.li`
       transform: scale(1)
     }  
     ${Mask}{
+      transition: 200ms ease-in;
       transform: skewX(12deg) translateX(2px);
       & + ${Mask}{
       transform: skewX(12deg) translateX(-2px);
+      
     }
     }    
   }

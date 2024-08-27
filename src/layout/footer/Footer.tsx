@@ -12,7 +12,7 @@ export const Footer = () => {
         <Name>Nik</Name>
         <SocialList>
           {comunication.map(el => (
-            <SocialItem>
+            <SocialItem key={el}>
               <FlexWrapper justify="center" align="center">
                 <SocialLink>
                   <Icon

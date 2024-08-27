@@ -1,0 +1,64 @@
+.carousel {
+   max-width: 340px;
+   color: red !important;
+}
+
+:where(.css-dev-only-do-not-override-6xsi26).ant-carousel .slick-prev::after,
+:where(.css-dev-only-do-not-override-6xsi26).ant-carousel .slick-next::after {
+   content: "";
+   width: 20px;
+   height: 20px;
+   color: aqua;
+   border-left: 4px solid;
+   border-top: 4px solid;
+
+}
+
+:where(.css-dev-only-do-not-override-6xsi26).ant-carousel .slick-prev::after {
+   animation: arrow-prev 1s ease-in 0s infinite alternate backwards;
+}
+:where(.css-dev-only-do-not-override-6xsi26).ant-carousel .slick-next::after {
+   animation: arrow-next 1s ease-in 0s infinite alternate backwards;
+}
+
+
+@keyframes arrow-next {
+   0% {
+      color: aqua;
+      left: 0
+   }
+
+   100% {
+      color: white;
+      left: 10px
+   }
+}
+
+@keyframes arrow-prev {
+   0% {
+      color: aqua;
+      left: 10px
+   }
+
+   100% {
+      color: white;
+      left: 0px
+   }
+}
+
+
+
+
+
+
+
+.slick-arrow .slick-next .slick-next::after,
+.slick-next::after,
+.ant-carousel .slick-next:hover {
+   font-size: inherit;
+   color: currentColor;
+
+   border-radius: 7px;
+
+   border-block-width: 5px 0;
+}

@@ -15,7 +15,7 @@ export const Button = styled.button`
     text-transform: capitalize;
     background-image: linear-gradient( ${theme.color.gradientPrimary}, ${theme.color.gradientSecondary});
     color: ${theme.color.font};
-    margin: 10px 0;
+    margin: 20px 0;
 
     &:hover{
         color: #ccc8c8
