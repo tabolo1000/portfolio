@@ -5,6 +5,10 @@ import { Button } from "../../../components/Button";
 import { Container } from "../../../components/Container";
 import { theme } from "../../../styles/Themes";
 import { font } from "../../../styles/Common";
+import { TypeAnimation } from 'react-type-animation';
+import Tilt from 'react-parallax-tilt';
+//import './ParallaxEffectGlareScale.demozap.css';
+
 
 export const Main = () => {
   return (
@@ -15,12 +19,37 @@ export const Main = () => {
             <Acquaintance>
               <Greeting>Welcome</Greeting>
               <Name>I'm <span>Tabala Nik</span></Name>
-              <MainTitle>A Web Developer.</MainTitle>
+              <MainTitle>
+                <TypeAnimation
+                  sequence={[
+                    // Same substring at the start will only be typed out once, initially
+                    'A Web Developer.',
+                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                    'A Front-end Developer.',
+                    1000,
+                    'And just a good man!',
+                    1000,
+                  ]}
+                  deletionSpeed={80}
+                  speed={15}
+                  repeat={Infinity}
+                />
+              </MainTitle>
             </Acquaintance>
             <Button>Download CV</Button>
           </div>
           <PhotoWrapper>
-            <Photo src={avatar} alt="avatar" />
+
+            <Tilt
+              glareEnable={true}
+              glareMaxOpacity={0.9}
+              glareColor="lightblue"
+              glarePosition="all"
+              glareBorderRadius="20px"
+            >
+              <Photo src={avatar} alt="avatar" />
+            </Tilt>
+
           </PhotoWrapper>
         </FlexWrapper>
       </Container>
@@ -28,6 +57,34 @@ export const Main = () => {
 
   );
 };
+
+
+//<MainTitle>A Web Developer.</MainTitle>
+
+
+//<Photo src={avatar} alt="avatar" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const squareStyleElement = css`
   content: "";
@@ -51,7 +108,7 @@ const PhotoWrapper = styled.div`
   
   &::before{
     ${squareStyleElement}
-
+    
     top: -20px;
     left: 30px;
 
@@ -62,7 +119,8 @@ const PhotoWrapper = styled.div`
   };
   &::after{
     ${squareStyleElement}
-
+    
+    z-index: -1;
     top: 10px;
     left: -10px;
   }
@@ -103,7 +161,6 @@ const Photo = styled.img`
   height: 430px;
   object-fit: cover;
   object-position: center;
-  z-index: 1;
 
   @media ${theme.mobile} {
     width: 256px;
@@ -112,6 +169,7 @@ const Photo = styled.img`
 `;
 
 const MainTitle = styled.h1`
+  position: absolute;
   ${font({
   weight: 200,
   Fmax: 19,
@@ -119,6 +177,7 @@ const MainTitle = styled.h1`
 })}
   letter-spacing: 0.01em;
   text-transform: uppercase;
+  
 
   @media ${theme.tablet} {
     display: block;
@@ -139,6 +198,7 @@ const Name = styled.h4`
     &::before{
     content: "";
     border: 2px solid ${theme.color.gradientPrimary};
+    opacity: .5;
     border-radius: 10px;
     display: inline-block;
     width: 60%;
