@@ -3,28 +3,35 @@ import { Button } from "../../../../components/Button";
 import { theme } from "../../../../styles/Themes";
 import { WorkProjectType } from "../useWorks";
 import { useCallback } from "react";
+import { motion } from "framer-motion";
 
 
 
 type WorkProps = WorkProjectType & {
-  
+
 }
 
 export const Work = ({
+  id,
   title,
   description,
   linkCode,
   linkDemo,
   photo,
- 
+
 }: WorkProps) => {
 
-const GitHubRedirectButton = useCallback(()=>{
-  window.location.href = 'https://tabolo1000.github.io/todolists/';
-},[])
+  const GitHubRedirectButton = useCallback(() => {
+    window.location.href = 'https://tabolo1000.github.io/todolists/';
+  }, [])
 
   return (
-    <MainWork>
+    <MainWork
+      id={id}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <WorkImageWrapper>
         <Image src={photo} alt={title} />
         <Button onClick={GitHubRedirectButton}>Click</Button>
@@ -45,7 +52,7 @@ const BlockInformation = styled.div`
  padding: 20px 
 `
 
-const MainWork = styled.div`
+const MainWork = styled(motion.div)`
   max-width: 540px;
   background-color: #00b3ff3a;
   width: 100%
@@ -71,10 +78,15 @@ const WorkImageWrapper = styled.div`
   
   ${Button} {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    transition: ${theme.animation.transition};
+
+    @media ${theme.tablet} {
+      top: 50%;
+    }
   };
 
   &::before{
@@ -85,15 +97,16 @@ const WorkImageWrapper = styled.div`
     right: 0;
     top: 0;
     bottom: 0;
-
+    transition: ${theme.animation.transition};
   }
 
   &:hover{
     &::before{
-      backdrop-filter: blur(8px);   
+      backdrop-filter: blur(2px);   
     }
     
   ${Button}{
+    top: 50%;
     opacity: 1; 
   }
   }
@@ -103,7 +116,7 @@ const WorkImageWrapper = styled.div`
       opacity: 1;    
     }
     &::before{
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(2px);
     }
   }
 `

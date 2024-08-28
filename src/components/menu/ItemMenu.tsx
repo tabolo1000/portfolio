@@ -46,15 +46,16 @@ const ListItem = styled.li`
   &::before {
     content: '';
     display: inline-block;
-    height: 10px;
+    height: 5px;
     background-color: ${theme.color.gradientSecondary};
     transform: rotate(-4deg);
     border-radius: 5px;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: -5px;
     right: -5px;
     z-index: -1;
+    transition: ${theme.animation.transition}
   }
 
   &::after {
@@ -62,7 +63,7 @@ const ListItem = styled.li`
     display: inline-block;
     position: absolute;
     border-radius: 5px;
-    height: 10px;
+    height: 15px;
     left: 5px;
     right: -10px;
     bottom: 50%;
@@ -74,8 +75,12 @@ const ListItem = styled.li`
   }
 
   &:hover {
+    &::before {
+      height: 15px;
+      top: 50%;
+    };
     &::after {
       transform: rotate(-4deg) scale(1);
-    }
+    };
   }
 `;

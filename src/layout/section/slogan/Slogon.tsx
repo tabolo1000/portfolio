@@ -10,13 +10,15 @@ export const Slogan = () => {
     <SloganSection>
       <Container>
         <h2>We live and breathe software development!</h2>
-        <Button>Hire me</Button>
       </Container>
     </SloganSection>
   )
 };
 
 const SloganSection = styled.section`
+   position: relative;
+   min-height: 300px;
+   
    ${Button}{
     display: block;
     margin: 0 auto;
@@ -32,6 +34,7 @@ const SloganSection = styled.section`
   Fmin: 24,
   weight: 600,
 })
+
   }
   @media ${theme.tablet} {
     padding-top: 50px;
@@ -39,4 +42,5 @@ const SloganSection = styled.section`
 
 
    }
+   
 `;

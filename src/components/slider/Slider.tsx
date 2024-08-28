@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FlexWrapper } from "../FlexWrapper";
-import { theme } from "../../styles/Themes";
 import { Carousel, ConfigProvider } from 'antd';
 import "./slider.css"
 
@@ -28,8 +27,6 @@ export const comment = [
 
 
 export const Slider = () => {
-
-
   return (
     <MaindSlider direction="column" align="center" gap="10px">
       <FlexWrapper>
@@ -43,7 +40,7 @@ export const Slider = () => {
                 dotHeight: 10,
                 dotWidth: 10,
                 dotOffset: 12,
-               
+
               },
             },
           }}
@@ -76,6 +73,8 @@ export const Slider = () => {
 
 const MaindSlider = styled(FlexWrapper)`
   max-width: 500px;
+
+ 
 `;
 
 const Slide = styled.div`
@@ -83,23 +82,14 @@ const Slide = styled.div`
   text-align: center;
 `;
 const Text = styled.p`
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+   user-select: none;
+   cursor: grab;
 `;
 const Name = styled.span`
   display: inline-block;
   padding: 15px 0 35px;
 `;
-const Pagination = styled.div`
-  span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 5px;
-    background-color: #8a7f7fdf;
-    border-radius: 50%;
-  }
-  span:hover{
-    width: 20px;
-    background-color: ${theme.color.gradientSecondary};
-    border-radius: 25%;
-  }
-`;
+

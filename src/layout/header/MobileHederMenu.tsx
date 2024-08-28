@@ -12,14 +12,16 @@ export const MobileHeaderMenu = ({ menuItems }: MenuType) => {
     const [open, isOpen] = useState(false);
     return (
         <StyleHeaderMenu>
-            <ListTab isOpen = {open}>
+            <ListTab isOpen={open}>
                 <FlexWrapper align="center" justify="center" gap="30px" direction="column">
                     {menuItems.map((el, index) => (
-                        <Tab key={index} title={el} />
+                        <div onClick={() => isOpen(false)}>
+                            <Tab key={index} title={el} />
+                        </div>
                     ))}
                 </FlexWrapper>
             </ListTab>
-            <BurggerButton onClick={() => isOpen(!open)} isOpen = {open}></BurggerButton>
+            <BurggerButton onClick={() => isOpen(!open)} isOpen={open}></BurggerButton>
         </StyleHeaderMenu>
     );
 };
@@ -35,7 +37,7 @@ const StyleHeaderMenu = styled.nav`
 
 `
 
-const BurggerButton = styled.span<{isOpen: boolean}>`
+const BurggerButton = styled.span<{ isOpen: boolean }>`
     position: relative;
     display: inline-block;
     width: 32px;
@@ -59,7 +61,7 @@ const BurggerButton = styled.span<{isOpen: boolean}>`
         background-color: ${theme.color.font};
         top: 10px;
     }
-    ${props => props.isOpen && css<{isOpen: boolean}>`
+    ${props => props.isOpen && css<{ isOpen: boolean }>`
         z-index: 99999;
         background-color: transparent;
         border: 4px dotted #924949a4;
@@ -88,7 +90,7 @@ const BurggerButton = styled.span<{isOpen: boolean}>`
 
 `
 
-const ListTab = styled.ul<{isOpen: boolean}>`
+const ListTab = styled.ul<{ isOpen: boolean }>`
     position: fixed;
     top: 0;
     left: 0;
@@ -97,7 +99,7 @@ const ListTab = styled.ul<{isOpen: boolean}>`
     backdrop-filter: blur(8px);
     z-index: 99999;
 
-    ${props => !props.isOpen && css<{isOpen: boolean}>`
+    ${props => !props.isOpen && css<{ isOpen: boolean }>`
         display: none;
     `}
 

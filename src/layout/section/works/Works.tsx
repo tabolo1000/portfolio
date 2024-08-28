@@ -3,11 +3,10 @@ import { SectionTitle } from "../../../components/SectionTitle";
 import { Menu } from "../../../components/menu/Menu";
 import { FlexWrapper } from "../../../components/FlexWrapper";
 import { Work } from "./work/Work";
-import photoWorks from "../../../assets/images/photo/tinySize/indexWorks";
 import { Container } from "../../../components/Container";
-import { useState } from "react";
 import { font } from "../../../styles/Common";
 import { useWorks } from "./useWorks";
+import { AnimatePresence, motion } from "framer-motion"
 
 
 
@@ -15,24 +14,26 @@ import { useWorks } from "./useWorks";
 export const Works = () => {
   const {
     actulaListWork,
-    filter,
     changeFilter,
     menuItems
   } = useWorks()
   return (
-    <WorksSection>
+    <WorksSection id="portfolio">
       <Container>
         <SectionTitle><span>My Work Experiance</span></SectionTitle>
         <Menu menuItems={menuItems} changeFilter={changeFilter} />
         <FlexWrapper align="start" justify="space-around" wrap="wrap" gap="10px">
-          {(actulaListWork.length)
-            ? (
-              actulaListWork.map((el, index) => (
-                <Work key={index}  {...el} />
-              ))
-            )
-            : <NotProjectTitle>Projects are not available at the moment!</NotProjectTitle>
-          }
+
+          <AnimatePresence>
+            {(actulaListWork.length)
+              ? (
+                actulaListWork.map((el) => (
+                  <Work key={el.id}  {...el} />
+                ))
+              )
+              : <NotProjectTitle>Projects are not available at the moment!</NotProjectTitle>
+            }
+          </AnimatePresence>
         </FlexWrapper>
       </Container>
     </WorksSection>
@@ -40,6 +41,8 @@ export const Works = () => {
 };
 
 const WorksSection = styled.section`
+  position: relative;
+  padding: 10px;
 `;
 
 const NotProjectTitle = styled.h2`

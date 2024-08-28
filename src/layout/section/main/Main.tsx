@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import avatar from "../../../assets/images/photo/tinySize/71ad4c1a7463d236881b4dc4014dfe5f.webp";
 import { FlexWrapper } from "../../../components/FlexWrapper";
 import { Button } from "../../../components/Button";
@@ -7,12 +7,12 @@ import { theme } from "../../../styles/Themes";
 import { font } from "../../../styles/Common";
 import { TypeAnimation } from 'react-type-animation';
 import Tilt from 'react-parallax-tilt';
-//import './ParallaxEffectGlareScale.demozap.css';
+
 
 
 export const Main = () => {
   return (
-    <MainSection>
+    <MainSection id="home">
       <Container>
         <FlexWrapper align="center" justify="space-around" wrap="wrap">
           <div>
@@ -22,9 +22,8 @@ export const Main = () => {
               <MainTitle>
                 <TypeAnimation
                   sequence={[
-                    // Same substring at the start will only be typed out once, initially
                     'A Web Developer.',
-                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                    1000,
                     'A Front-end Developer.',
                     1000,
                     'And just a good man!',
@@ -39,7 +38,6 @@ export const Main = () => {
             <Button>Download CV</Button>
           </div>
           <PhotoWrapper>
-
             <Tilt
               glareEnable={true}
               glareMaxOpacity={0.9}
@@ -49,7 +47,6 @@ export const Main = () => {
             >
               <Photo src={avatar} alt="avatar" />
             </Tilt>
-
           </PhotoWrapper>
         </FlexWrapper>
       </Container>
@@ -59,10 +56,6 @@ export const Main = () => {
 };
 
 
-//<MainTitle>A Web Developer.</MainTitle>
-
-
-//<Photo src={avatar} alt="avatar" />
 
 
 
@@ -185,6 +178,25 @@ const MainTitle = styled.h1`
   }
 `;
 
+const AnimationNameBefore = keyframes`
+    0%{
+      bottom: 2px;
+    }
+    100%{
+      bottom: 12px;
+    }
+  
+`
+const AnimationNameAfter = keyframes`
+    0%{
+      bottom: -10px;
+    }
+    100%{
+      bottom: 0px;
+    }
+  
+`
+
 const Name = styled.h4`
   position: relative;
   font-weight: 600;
@@ -194,6 +206,8 @@ const Name = styled.h4`
   Fmin: 28
 })};
   z-index: 0;
+  
+  
  span {
     &::before{
     content: "";
@@ -207,6 +221,7 @@ const Name = styled.h4`
     right: 0;
     z-index: -1;
     transform: rotate(-10deg);
+    animation: ${AnimationNameBefore} 2s ease 0s infinite alternate-reverse forwards;
     }
     &::after{
     content: "";
@@ -218,7 +233,8 @@ const Name = styled.h4`
     bottom: -10px;
     right: 5%;
     z-index: -1;
-    transform: rotate(-15deg)
+    transform: rotate(-15deg);
+    animation: ${AnimationNameAfter} 2s ease 0s infinite alternate-reverse forwards;
   }
   }
 
@@ -226,3 +242,6 @@ const Name = styled.h4`
     line-height: 60px;
   }
 `;
+
+
+

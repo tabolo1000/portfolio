@@ -1,10 +1,25 @@
 import styled from "styled-components";
 import { theme } from "../../styles/Themes";
+import { FC } from "react";
+import { Link } from "react-scroll";
 
-export const Tab = ({ title }: { title: string }) => {
+
+type TabProps = {
+  title: string,
+}
+
+
+export const Tab: FC<TabProps> = ({ title }) => {
   return (
     <ListItem>
-      <Link href={title.toLowerCase()}>
+      <LinkTab
+        to={`${title.toLowerCase()}`}
+        smooth={true}
+        offset={-100}
+        duration={1000}
+        isDynamic={true}
+        spy={true}
+      >
         {title}
         <Mask>
           <span>{title}</span>
@@ -12,19 +27,12 @@ export const Tab = ({ title }: { title: string }) => {
         <Mask>
           <span>{title}</span>
         </Mask>
-      </Link>
+      </LinkTab>
     </ListItem>
   );
 };
 
 
-
-
-const Link = styled.a`
-  font-weight: 400;
-  font-size: 20px;
-  color: transparent;
-`
 
 const Mask = styled.span`
 position: absolute;
@@ -34,6 +42,7 @@ display: inline-block;
 height: 50%;
 overflow-y: hidden;
 color: ${theme.color.font};
+transition: ${theme.animation.transition};
 
 
 & + & {
@@ -45,13 +54,17 @@ color: ${theme.color.font};
 }
 `
 
-const ListItem = styled.li`
-  position: relative;
+const LinkTab = styled(Link)`
+  font-weight: 400;
+  font-size: 20px;
+  color: transparent;
+
   &::before{
     content: "";
     display: inline-block;
     height: 2px;
     background-color: ${theme.color.font}; 
+    border-radius: 50%;
     
 
     position: absolute;
@@ -60,15 +73,18 @@ const ListItem = styled.li`
     right: -10px;
     z-index: 1;
 
+    
     transform: scale(0);
+    transition: ${theme.animation.transition};
   }
 
-  &:hover{
+  &:hover, &.active{
     &::before {
-      transform: scale(1)
+      transform: scale(1);
+      //transition: 2s ease-in;
     }  
     ${Mask}{
-      transition: 200ms ease-in;
+      //transition: 2s ease-in;
       transform: skewX(12deg) translateX(2px);
       & + ${Mask}{
       transform: skewX(12deg) translateX(-2px);
@@ -76,5 +92,10 @@ const ListItem = styled.li`
     }
     }    
   }
-    
+  
+`
+
+
+const ListItem = styled.li`
+  position: relative;
 `

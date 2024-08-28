@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components"
+import { theme } from "../../styles/Themes"
 
 export const Logo = () => {
   return (
@@ -8,7 +9,7 @@ export const Logo = () => {
 
 const logoA = keyframes`
     100%{
-      color: red
+      color: ${theme.color.gradientPrimary}
     }
 `
 

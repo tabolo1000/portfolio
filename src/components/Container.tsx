@@ -8,7 +8,6 @@ export const Container = styled.div`
     max-width: 1170px;
     width: 100%;
     min-height: 100%;
-    //padding: 10px 15px;
     margin: 0 auto;
     z-index: 99999;
     //outline: 1px solid red;

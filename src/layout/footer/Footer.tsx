@@ -33,8 +33,9 @@ export const Footer = () => {
 };
 
 const MainFooter = styled.footer`
+  position: relative;
   min-height: 10vh;
-  background-color: #0f35b21b;
+  background-color: #0f35b21a;
 `;
 const Name = styled.span`
   padding-top: 40px;
@@ -53,7 +54,7 @@ const SocialLink = styled.a`
 
 const SocialItem = styled.li`
   margin: 20px 0 30px;
-  background-color: #635353d0;
+  background-color: #635353d2;
   border-radius: 50%;
   width: 30px;
   height: 30px;

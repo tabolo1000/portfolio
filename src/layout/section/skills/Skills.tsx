@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { FlexWrapper } from "../../../components/FlexWrapper";
 import { SectionTitle } from "../../../components/SectionTitle";
 import { SkillBox, SkillType } from "./skill/SkillBox";
 import { Container } from "../../../components/Container";
-import { theme } from "../../../styles/Themes";
+import { Bounce} from "react-awesome-reveal";
 
 const skills: Array<SkillType> = [
   {
@@ -68,14 +67,22 @@ export const Skills = () => {
       <Container>
         <SectionTitle> <span >My Skills</span></SectionTitle>
         <SkillsBox>
-          {skills.map((el, index) => (
-            <SkillBox
-              key={index}
-              iconId={el.iconId}
-              title={el.title}
-              description={el.description}
-            />
-          ))}
+          <Bounce
+            cascade
+            damping = {.2}
+            triggerOnce
+            //direction = "top-left"
+            duration =  {800}
+          >
+            {skills.map((el, index) => (
+              <SkillBox
+                key={index}
+                iconId={el.iconId}
+                title={el.title}
+                description={el.description}
+              />
+            ))}
+          </Bounce>
         </SkillsBox>
       </Container>
     </SkillsSection>
@@ -102,5 +109,6 @@ const SkillsBox = styled.ul`
 
 
 const SkillsSection = styled.section`
-
+  position: relative;
+  padding: 10px;
 `;

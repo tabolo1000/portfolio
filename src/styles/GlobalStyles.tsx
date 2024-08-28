@@ -14,6 +14,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box,
 }
 
+
+
     body {
   margin: 0;
   height: 100vh;
@@ -65,11 +67,20 @@ h3{
     font-size: 16px;
     letter-spacing: 0.06em;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #1f1f1fd2 inset !important;
+    opacity: 0.4;
+    border: 2px solid #4a4a4a;
+}
+
 input, textarea{
     box-sizing: border-box;
     background-color: ${theme.color.secondaryBg};
     padding: 8px 16px;
-    text-transform: capitalize;
     font-weight: 400;
     font-size: 12px;
     letter-spacing: 0.05em;
@@ -79,6 +90,7 @@ input, textarea{
         outline: 2px solid #4A4A4A;
     }
 }
+
 textarea{
     min-height: 155px;
     text-indent: none;
