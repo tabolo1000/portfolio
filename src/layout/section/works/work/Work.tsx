@@ -22,7 +22,7 @@ export const Work = ({
 }: WorkProps) => {
 
   const GitHubRedirectButton = useCallback(() => {
-    window.location.href = 'https://tabolo1000.github.io/todolists/';
+    window.location.href = `${linkDemo}`;
   }, [])
 
   return (
