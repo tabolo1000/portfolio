@@ -2,7 +2,7 @@
   "name": "portfolio-start",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tabolo1000.github.io/portfolio",
+  "homepage": "https://tabolo1000.github.io/portfolio/",
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
     "@babel/core": "7.16.0",
@@ -83,7 +83,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

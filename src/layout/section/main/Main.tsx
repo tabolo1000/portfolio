@@ -35,7 +35,6 @@ export const Main = () => {
                 />
               </MainTitle>
             </Acquaintance>
-            <Button>Download CV</Button>
           </div>
           <PhotoWrapper>
             <Tilt
@@ -153,7 +152,7 @@ const Photo = styled.img`
   width: 350px;
   height: 430px;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
 
   @media ${theme.mobile} {
     width: 256px;
